@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'by.paramonov'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework:spring-core:6.0.6'
+    implementation 'org.springframework:spring-context:6.0.6'
+    implementation 'org.springframework:spring-web:6.0.6'
+    implementation 'org.springframework:spring-webmvc:6.0.6'
+    implementation 'org.springframework:spring-jdbc:6.0.6'
+    implementation 'org.postgresql:postgresql:42.5.4'
+    implementation 'com.zaxxer:HikariCP:5.0.1'
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final', 'org.projectlombok:lombok:1.18.24', 'org.projectlombok:lombok-mapstruct-binding:0.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}

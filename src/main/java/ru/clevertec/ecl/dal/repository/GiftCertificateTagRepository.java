@@ -1,0 +1,7 @@
+package ru.clevertec.ecl.dal.repository;
+
+public interface GiftCertificateTagRepository {
+
+    boolean isTagExists(Long giftCertificateId, Long tagId);
+    void addDependency(Long giftCertificateId, Long tagId);
+}
