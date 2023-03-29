@@ -3,6 +3,11 @@ plugins {
     id 'war'
 }
 
+war {
+    archiveFileName = 'certificates'
+    archiveName 'certificates.war'
+}
+
 sourceCompatibility = 17
 targetCompatibility = 17
 
