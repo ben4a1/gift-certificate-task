@@ -15,4 +15,5 @@ public interface GiftCertificateService {
     GiftCertificate update(GiftCertificate giftCertificate);
 
     void delete(Long giftCertificateId);
+    List<GiftCertificate> findAllWithFilter(Map<String, String> filterParams);
 }

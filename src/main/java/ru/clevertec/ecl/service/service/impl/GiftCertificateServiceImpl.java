@@ -73,7 +73,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
         giftCertificateRepository.delete(giftCertificateId);
     }
 
-    private List<GiftCertificate> findAllWithFilter(Map<String, String> filterParams) {
+    public List<GiftCertificate> findAllWithFilter(Map<String, String> filterParams) {
         return null;
     }
 

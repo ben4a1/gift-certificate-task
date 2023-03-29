@@ -113,7 +113,7 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
     }
 
     @Override
-    public List<GiftCertificate> findBySpecificRequest(String specificRequest) {
+    public List<GiftCertificate> findAllWithFilter(String specificRequest) {
         return namedParameterJdbcTemplate.query(specificRequest, giftCertificateRowMapper);
     }
 }
