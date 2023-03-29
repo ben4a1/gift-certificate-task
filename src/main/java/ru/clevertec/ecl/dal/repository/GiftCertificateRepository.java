@@ -7,5 +7,7 @@ import java.util.Map;
 
 public interface GiftCertificateRepository extends CrudRepository<GiftCertificate, Long> {
 
-    List<GiftCertificate> findAllWithFilter(String specificRequest);
+    List<GiftCertificate> findByPartOfName(String partOfName);
+
+    List<GiftCertificate> findByPartOfDescription(String partOfDescription);
 }

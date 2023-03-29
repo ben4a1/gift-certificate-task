@@ -41,7 +41,7 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
         GiftCertificate certificate;
         try {
             certificate = namedParameterJdbcTemplate.queryForObject(findByIdQuery, sqlParameterSource, giftCertificateRowMapper);
-        } catch (EmptyResultDataAccessException exception){
+        } catch (EmptyResultDataAccessException exception) {
             throw new RuntimeException();
         }
         return certificate;
@@ -69,7 +69,7 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
     public GiftCertificate update(GiftCertificate object) {
         Long objectId = object.getId();
         GiftCertificate existingCertificate = findById(objectId);
-        if (existingCertificate == null){
+        if (existingCertificate == null) {
             System.out.println("No Gift certificate found with ID " + objectId);
             return null;
         }
@@ -116,8 +116,20 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
         }
     }
 
+
     @Override
-    public List<GiftCertificate> findAllWithFilter(String specificRequest) {
-        return namedParameterJdbcTemplate.query(specificRequest, giftCertificateRowMapper);
+    public List<GiftCertificate> findByPartOfName(String partOfName) {
+        String query = "SELECT * FROM gift_certificate WHERE name LIKE concat('%',?,'%')";
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("name", partOfName);
+        return namedParameterJdbcTemplate.query(query, mapSqlParameterSource, giftCertificateRowMapper);
+    }
+
+    @Override
+    public List<GiftCertificate> findByPartOfDescription(String partOfDescription) {
+        String query = "SELECT * FROM gift_certificate WHERE description LIKE concat('%',?,'%')";
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("description", partOfDescription);
+        return namedParameterJdbcTemplate.query(query, mapSqlParameterSource, giftCertificateRowMapper);
     }
 }

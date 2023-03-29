@@ -57,7 +57,6 @@ public class GiftCertificateServiceTest {
         GiftCertificate giftCertificateExpected = getCertificates().get(0);
         giftCertificateExpected.setTagList(getTags());
         Mockito.when(giftCertificateRepository.create(giftCertificateExpected)).thenReturn(giftCertificateExpected);
-        Mockito.when(tagRepository.create(getTags().get(0))).thenReturn(getTags().get(0));
         GiftCertificate giftCertificateActual = giftCertificateService.create(giftCertificateExpected);
         Mockito.verify(tagRepository, Mockito.times(2)).create(any());
         Mockito.verify(giftCertificateTagRepository, Mockito.times(2)).addDependency(any(), any());
