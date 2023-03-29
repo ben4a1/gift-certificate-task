@@ -9,9 +9,9 @@ import lombok.experimental.SuperBuilder;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @SuperBuilder(builderMethodName = "aTag", toBuilder = true)
 public class Tag extends BaseEntity{
 

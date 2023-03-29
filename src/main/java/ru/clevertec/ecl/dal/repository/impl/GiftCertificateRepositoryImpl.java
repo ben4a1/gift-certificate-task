@@ -1,5 +1,8 @@
 package ru.clevertec.ecl.dal.repository.impl;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -14,6 +17,7 @@ import ru.clevertec.ecl.dal.repository.GiftCertificateRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Slf4j
 @Repository
 public class GiftCertificateRepositoryImpl implements GiftCertificateRepository {
 

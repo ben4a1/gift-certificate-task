@@ -9,6 +9,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import ru.clevertec.ecl.dal.entity.Tag;
 import ru.clevertec.ecl.dal.repository.TagRepository;
+import ru.clevertec.ecl.exception.TagAlreadyExistsException;
 
 import java.util.List;
 
@@ -49,6 +50,9 @@ public class TagRepositoryImpl implements TagRepository {
 
     @Override
     public Tag create(Tag object) {
+        if (isTagExists(object)){
+            throw new TagAlreadyExistsException(object.getName());
+        }
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource("name", object.getName());
         KeyHolder keyHolder = new GeneratedKeyHolder();
         namedParameterJdbcTemplate.update(createQuery, sqlParameterSource, keyHolder, new String[]{"id"});
