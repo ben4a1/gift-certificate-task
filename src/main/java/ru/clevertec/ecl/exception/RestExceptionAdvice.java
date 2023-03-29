@@ -1,18 +1,23 @@
 package ru.clevertec.ecl.exception;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import ru.clevertec.ecl.web.response.ErrorResponse;
 
-@RequiredArgsConstructor
-@RestControllerAdvice("ru.clevertec.ecl")
+import java.time.LocalDateTime;
+
+@RestControllerAdvice
 public class RestExceptionAdvice {
 
-    @ExceptionHandler
+    @ExceptionHandler(CustomException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String error(CustomException exception) {
-        return exception.getMessage();
+    public ErrorResponse handleNotFoundException(CustomException exception) {
+        return ErrorResponse.builder()
+                .message(exception.getMessage())
+                .status(HttpStatus.NOT_FOUND)
+                .timestamp(LocalDateTime.now())
+                .build();
     }
 }

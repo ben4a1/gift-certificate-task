@@ -45,9 +45,8 @@ public class GiftCertificateController {
     }
 
     @DeleteMapping(value = "/certificates/{id}", produces = {"application/json"})
-    public ResponseEntity<GiftCertificate> deleteCertificate(@PathVariable Long id) {
-        GiftCertificate giftCertificate = giftCertificateService.findById(id);
+    public ResponseEntity<Void> deleteCertificate(@PathVariable Long id) {
         giftCertificateService.delete(id);
-        return new ResponseEntity<>(giftCertificate, HttpStatus.OK);
+        return ResponseEntity.ok().build();
     }
 }
