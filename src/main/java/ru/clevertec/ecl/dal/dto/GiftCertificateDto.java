@@ -1,5 +1,6 @@
 package ru.clevertec.ecl.dal.dto;
 
+import lombok.Builder;
 import lombok.Data;
 import ru.clevertec.ecl.dal.entity.Tag;
 
@@ -9,7 +10,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-public class GiftCertificateDTO {
+@Builder
+public class GiftCertificateDto {
 
     private Long id;
     private String name;

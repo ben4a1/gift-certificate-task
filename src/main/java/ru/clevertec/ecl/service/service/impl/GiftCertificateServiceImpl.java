@@ -79,8 +79,8 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
 
     private void addTags(Long giftCertificateId, List<Tag> tags) {
         tags.forEach(tag -> {
-            Tag newTag = null;
-            Long id = 0L;
+            Tag newTag;
+            Long id;
             if (!tagRepository.isTagExists(tag)) {
                 newTag = tagRepository.create(tag);
                 id = newTag.getId();

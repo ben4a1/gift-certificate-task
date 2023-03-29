@@ -13,7 +13,7 @@ import java.util.Map;
 @RestController
 public class GiftCertificateController {
 
-    private GiftCertificateService giftCertificateService;
+    private final GiftCertificateService giftCertificateService;
 
     @Autowired
     public GiftCertificateController(GiftCertificateService giftCertificateService) {
@@ -41,13 +41,13 @@ public class GiftCertificateController {
     public ResponseEntity<GiftCertificate> updateCertificate(@PathVariable Long id, @RequestBody GiftCertificate certificate) {
         certificate.setId(id);
         GiftCertificate update = giftCertificateService.update(certificate);
-        return new ResponseEntity(update, HttpStatus.OK);
+        return new ResponseEntity<>(update, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/certificates/{id}", produces = {"application/json"})
     public ResponseEntity<GiftCertificate> deleteCertificate(@PathVariable Long id) {
         GiftCertificate giftCertificate = giftCertificateService.findById(id);
         giftCertificateService.delete(id);
-        return new ResponseEntity(giftCertificate, HttpStatus.OK);
+        return new ResponseEntity<>(giftCertificate, HttpStatus.OK);
     }
 }

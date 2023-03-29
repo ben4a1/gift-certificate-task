@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @Profile("dev")
-public class SpringDbConfig {
+public class TestSpringDbConfig {
 
     public DataSource dataSource(){
         return new EmbeddedDatabaseBuilder()

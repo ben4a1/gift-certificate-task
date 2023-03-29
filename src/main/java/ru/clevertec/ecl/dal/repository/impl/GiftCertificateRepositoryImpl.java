@@ -1,6 +1,7 @@
 package ru.clevertec.ecl.dal.repository.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -33,7 +34,13 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
     @Override
     public GiftCertificate findById(Long id) {
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource("gift_certificate_id", id);
-        return namedParameterJdbcTemplate.queryForObject(findByIdQuery, sqlParameterSource, giftCertificateRowMapper);
+        GiftCertificate certificate;
+        try {
+            certificate = namedParameterJdbcTemplate.queryForObject(findByIdQuery, sqlParameterSource, giftCertificateRowMapper);
+        } catch (EmptyResultDataAccessException exception){
+            throw new RuntimeException();
+        }
+        return certificate;
     }
 
     @Override
