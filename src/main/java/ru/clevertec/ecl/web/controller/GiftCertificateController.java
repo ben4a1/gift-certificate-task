@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.clevertec.ecl.dal.dto.GiftCertificateDto;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.service.GiftCertificateService;
 
@@ -20,27 +21,27 @@ public class GiftCertificateController {
         this.giftCertificateService = giftCertificateService;
     }
     @GetMapping(value="/certificates", produces = "application/json")
-    public ResponseEntity<List<GiftCertificate>> certificates(@RequestParam(required=false) Map<String,String> filterParams) {
-        List<GiftCertificate> giftCertificates = giftCertificateService.findAll(filterParams);
+    public ResponseEntity<List<GiftCertificateDto>> certificates(@RequestParam(required=false) Map<String,String> filterParams) {
+        List<GiftCertificateDto> giftCertificates = giftCertificateService.findAll();
         return new ResponseEntity<>(giftCertificates, HttpStatus.OK);
     }
 
     @GetMapping(value="/certificates/{id}", produces = "application/json")
-    public ResponseEntity<GiftCertificate> certificateById(@PathVariable Long id) {
-        GiftCertificate giftCertificate = giftCertificateService.findById(id);
+    public ResponseEntity<GiftCertificateDto> certificateById(@PathVariable Long id) {
+        GiftCertificateDto giftCertificate = giftCertificateService.findById(id);
         return new ResponseEntity<>(giftCertificate, HttpStatus.OK);
     }
 
     @PostMapping(value="/certificates", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<GiftCertificate> createCertificate(@RequestBody GiftCertificate certificate) {
-        GiftCertificate giftCertificate = giftCertificateService.create(certificate);
+    public ResponseEntity<GiftCertificateDto> createCertificate(@RequestBody GiftCertificate certificate) {
+        GiftCertificateDto giftCertificate = giftCertificateService.create(certificate);
         return new ResponseEntity<>(giftCertificate, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/certificates/{id}", consumes = {"application/json"}, produces = {"application/json"})
-    public ResponseEntity<GiftCertificate> updateCertificate(@PathVariable Long id, @RequestBody GiftCertificate certificate) {
+    public ResponseEntity<GiftCertificateDto> updateCertificate(@PathVariable Long id, @RequestBody GiftCertificate certificate) {
         certificate.setId(id);
-        GiftCertificate update = giftCertificateService.update(certificate);
+        GiftCertificateDto update = giftCertificateService.update(certificate);
         return new ResponseEntity<>(update, HttpStatus.OK);
     }
 

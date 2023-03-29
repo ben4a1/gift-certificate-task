@@ -1,19 +1,23 @@
 package ru.clevertec.ecl.service.service;
 
+import ru.clevertec.ecl.dal.dto.GiftCertificateDto;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 
 import java.util.List;
 import java.util.Map;
 
 public interface GiftCertificateService {
-    List<GiftCertificate> findAll(Map<String, String> filterParams);
+    List<GiftCertificateDto> findAll();
 
-    GiftCertificate findById(Long id);
+    GiftCertificateDto findById(Long id);
 
-    GiftCertificate create(GiftCertificate giftCertificate);
+    List<GiftCertificateDto> findByPartOfName(String partOfName);
 
-    GiftCertificate update(GiftCertificate giftCertificate);
+    List<GiftCertificateDto> findByPartOfDescription(String partOfDescription);
+
+    GiftCertificateDto create(GiftCertificate giftCertificate);
+
+    GiftCertificateDto update(GiftCertificate giftCertificate);
 
     void delete(Long giftCertificateId);
-    List<GiftCertificate> findAllWithFilter(Map<String, String> filterParams);
 }
