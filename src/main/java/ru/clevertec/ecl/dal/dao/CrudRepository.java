@@ -1,6 +1,4 @@
-package ru.clevertec.ecl.dal.repository;
-
-import ru.clevertec.ecl.dal.entity.GiftCertificate;
+package ru.clevertec.ecl.dal.dao;
 
 import java.util.List;
 

@@ -1,11 +1,10 @@
-package ru.clevertec.ecl.dal.repository.impl;
+package ru.clevertec.ecl.dal.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
-import ru.clevertec.ecl.dal.repository.GiftCertificateTagRepository;
+import ru.clevertec.ecl.dal.dao.GiftCertificateTagRepository;
 
 @Component
 public class GiftCertificateTagRepositoryImpl implements GiftCertificateTagRepository {

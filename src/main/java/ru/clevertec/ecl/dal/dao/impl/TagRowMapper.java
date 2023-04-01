@@ -1,4 +1,4 @@
-package ru.clevertec.ecl.dal.repository.impl;
+package ru.clevertec.ecl.dal.dao.impl;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;

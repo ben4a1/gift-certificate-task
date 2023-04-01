@@ -1,4 +1,4 @@
-package ru.clevertec.ecl.dal.repository.impl;
+package ru.clevertec.ecl.dal.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -8,7 +8,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.dal.repository.TagRepository;
+import ru.clevertec.ecl.dal.dao.TagRepository;
 import ru.clevertec.ecl.exception.TagAlreadyExistsException;
 
 import java.util.List;

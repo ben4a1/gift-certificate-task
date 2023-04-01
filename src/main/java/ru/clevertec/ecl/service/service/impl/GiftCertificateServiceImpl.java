@@ -5,15 +5,14 @@ import org.springframework.stereotype.Service;
 import ru.clevertec.ecl.dal.dto.GiftCertificateDto;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.dal.repository.GiftCertificateRepository;
-import ru.clevertec.ecl.dal.repository.GiftCertificateTagRepository;
-import ru.clevertec.ecl.dal.repository.TagRepository;
+import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
+import ru.clevertec.ecl.dal.dao.GiftCertificateTagRepository;
+import ru.clevertec.ecl.dal.dao.TagRepository;
 import ru.clevertec.ecl.service.mapper.GiftCertificateMapper;
 import ru.clevertec.ecl.service.service.GiftCertificateService;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class GiftCertificateServiceImpl implements GiftCertificateService {

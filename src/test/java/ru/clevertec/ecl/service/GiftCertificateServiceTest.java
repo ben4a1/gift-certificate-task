@@ -7,9 +7,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.clevertec.ecl.dal.dto.GiftCertificateDto;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.dal.repository.GiftCertificateRepository;
-import ru.clevertec.ecl.dal.repository.GiftCertificateTagRepository;
-import ru.clevertec.ecl.dal.repository.TagRepository;
+import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
+import ru.clevertec.ecl.dal.dao.GiftCertificateTagRepository;
+import ru.clevertec.ecl.dal.dao.TagRepository;
 import ru.clevertec.ecl.service.mapper.GiftCertificateMapper;
 import ru.clevertec.ecl.service.service.impl.GiftCertificateServiceImpl;
 
@@ -43,7 +43,7 @@ public class GiftCertificateServiceTest {
     @Test
     void checkCreateWithoutTagsShouldReturnEquals() {
         GiftCertificateMapper certificateMapper = GiftCertificateMapper.INSTANCE;
-        GiftCertificate giftCertificateExpected = certificateMapper.toCertificate(getCertificates().get(0));
+        GiftCertificate giftCertificateExpected = getCertificates().get(0);
         GiftCertificateDto giftCertificateDto = certificateMapper.toCertificateDTO(giftCertificateExpected);
         when(giftCertificateRepository.create(giftCertificateExpected)).thenReturn(giftCertificateExpected);
         GiftCertificateDto giftCertificateActual = giftCertificateService.create(giftCertificateExpected);
@@ -54,7 +54,7 @@ public class GiftCertificateServiceTest {
     @Test
     void checkCreateWithTagsShouldReturnEquals(){
         GiftCertificateMapper certificateMapper = GiftCertificateMapper.INSTANCE;
-        GiftCertificate giftCertificateExpected = certificateMapper.toCertificate(getCertificates().get(0));
+        GiftCertificate giftCertificateExpected = getCertificates().get(0);
         GiftCertificateDto giftCertificateDto = certificateMapper.toCertificateDTO(giftCertificateExpected);
         giftCertificateExpected.setTagList(getTags());
         Mockito.when(giftCertificateRepository.create(giftCertificateExpected)).thenReturn(giftCertificateExpected);

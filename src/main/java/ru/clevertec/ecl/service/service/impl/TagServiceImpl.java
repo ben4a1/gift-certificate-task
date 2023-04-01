@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.dal.repository.TagRepository;
-import ru.clevertec.ecl.dal.repository.impl.TagRepositoryImpl;
+import ru.clevertec.ecl.dal.dao.TagRepository;
+import ru.clevertec.ecl.dal.dao.impl.TagRepositoryImpl;
 import ru.clevertec.ecl.service.service.TagService;
 
 import java.util.List;

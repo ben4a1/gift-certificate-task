@@ -1,9 +1,8 @@
-package ru.clevertec.ecl.dal.repository;
+package ru.clevertec.ecl.dal.dao;
 
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 
 import java.util.List;
-import java.util.Map;
 
 public interface GiftCertificateRepository extends CrudRepository<GiftCertificate, Long> {
 

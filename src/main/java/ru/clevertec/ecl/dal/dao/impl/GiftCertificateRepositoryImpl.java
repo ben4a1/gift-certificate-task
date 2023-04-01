@@ -1,8 +1,6 @@
-package ru.clevertec.ecl.dal.repository.impl;
+package ru.clevertec.ecl.dal.dao.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -12,7 +10,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
-import ru.clevertec.ecl.dal.repository.GiftCertificateRepository;
+import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;

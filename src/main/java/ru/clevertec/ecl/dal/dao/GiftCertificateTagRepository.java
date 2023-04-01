@@ -1,4 +1,4 @@
-package ru.clevertec.ecl.dal.repository;
+package ru.clevertec.ecl.dal.dao;
 
 public interface GiftCertificateTagRepository {
 
