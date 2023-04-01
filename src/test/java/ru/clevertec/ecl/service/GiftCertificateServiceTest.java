@@ -1,6 +1,5 @@
 package ru.clevertec.ecl.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
@@ -66,21 +65,21 @@ public class GiftCertificateServiceTest {
         assertThat(giftCertificateActual).isEqualTo(giftCertificateDto);
     }
 
-    private List<GiftCertificateDto> getCertificates() {
-        List<GiftCertificateDto> certificates = new ArrayList<>();
-        certificates.add(GiftCertificateDto.builder()
+    private List<GiftCertificate> getCertificates() {
+        List<GiftCertificate> certificates = new ArrayList<>();
+        certificates.add(GiftCertificate.aGiftCertificate()
                 .id(1L)
                 .name("Certificate1")
                 .build());
-        certificates.add(GiftCertificateDto.builder()
+        certificates.add(GiftCertificate.aGiftCertificate()
                 .id(2L)
                 .name("Certificate2")
                 .build());
-        certificates.add(GiftCertificateDto.builder()
+        certificates.add(GiftCertificate.aGiftCertificate()
                 .id(3L)
                 .name("Certificate3")
                 .build());
-        certificates.add(GiftCertificateDto.builder()
+        certificates.add(GiftCertificate.aGiftCertificate()
                 .id(4L)
                 .name("Certificate4")
                 .build());
