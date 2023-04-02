@@ -12,6 +12,7 @@ import ru.clevertec.ecl.dal.dao.TagRepository;
 import ru.clevertec.ecl.exception.TagAlreadyExistsException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class TagRepositoryImpl implements TagRepository {
@@ -38,9 +39,9 @@ public class TagRepositoryImpl implements TagRepository {
     }
 
     @Override
-    public Tag findById(Long id) {
+    public Optional<Tag> findById(Long id) {
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource("tag_id", id);
-        return namedParameterJdbcTemplate.queryForObject(findByIdQuery, sqlParameterSource, tagRowMapper);
+        return Optional.ofNullable(namedParameterJdbcTemplate.queryForObject(findByIdQuery, sqlParameterSource, tagRowMapper));
     }
 
     @Override
@@ -56,7 +57,7 @@ public class TagRepositoryImpl implements TagRepository {
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource("name", object.getName());
         KeyHolder keyHolder = new GeneratedKeyHolder();
         namedParameterJdbcTemplate.update(createQuery, sqlParameterSource, keyHolder, new String[]{"id"});
-        return findById((Long) keyHolder.getKey());
+        return findById((Long) keyHolder.getKey()).get();
     }
 
     @Override
@@ -66,7 +67,7 @@ public class TagRepositoryImpl implements TagRepository {
         sqlParameterSource.addValue("tag_id", object.getId());
         sqlParameterSource.addValue("name", object.getName());
         namedParameterJdbcTemplate.update(updateQuery, sqlParameterSource);
-        return findById(objectId);
+        return findById(objectId).get();
     }
 
     @Override

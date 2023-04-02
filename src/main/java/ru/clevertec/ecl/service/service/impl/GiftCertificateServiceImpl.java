@@ -39,7 +39,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
 
     @Override
     public GiftCertificateDto findById(Long id) {
-        GiftCertificateDto giftCertificateDto = giftMapper.toCertificateDTO(giftCertificateRepository.findById(id));
+        GiftCertificateDto giftCertificateDto = giftMapper.toCertificateDTO(giftCertificateRepository.findById(id).orElse(null));
         return giftCertificateDto;
     }
 

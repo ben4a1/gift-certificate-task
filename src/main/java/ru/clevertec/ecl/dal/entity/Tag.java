@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "tag")
 @AttributeOverride(name = "id", column = @Column(name = "tag_id"))
-public class Tag extends BaseEntity{
+public class Tag extends BaseEntity<Long>{
 
     @Column(nullable = false, unique = true)
     private String name;

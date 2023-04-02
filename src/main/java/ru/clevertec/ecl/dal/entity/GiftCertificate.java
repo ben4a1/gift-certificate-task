@@ -19,17 +19,22 @@ import java.util.List;
 @Entity
 @Table(name = "gift_certificate")
 @AttributeOverride(name = "id", column = @Column(name = "gift_certificate_id"))
-public class GiftCertificate extends BaseEntity implements Serializable {
+public class GiftCertificate extends BaseEntity<Long> {
 
     private String name;
     private String description;
     private BigDecimal price;
+    @Column(name = "create_date")
     private LocalDateTime createDate;
+    @Column(name = "last_update_date")
     private LocalDateTime lastUpdateDate;
     private Duration duration;
     @ToString.Exclude
     @Builder.Default
     @ManyToMany
-    @JoinTable()
+    @JoinTable(
+            name = "certificate_tag",
+            joinColumns = @JoinColumn(name = "gift_certificate_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tagList = new ArrayList<>();
 }

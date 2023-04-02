@@ -14,6 +14,7 @@ import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -34,7 +35,7 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
     }
 
     @Override
-    public GiftCertificate findById(Long id) {
+    public Optional<GiftCertificate> findById(Long id) {
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource("gift_certificate_id", id);
         GiftCertificate certificate;
         try {
@@ -42,7 +43,7 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
         } catch (EmptyResultDataAccessException exception) {
             throw new RuntimeException();
         }
-        return certificate;
+        return Optional.ofNullable(certificate);
     }
 
     @Override
@@ -60,17 +61,13 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
         mapSqlParameterSource.addValue("create_date", object.getCreateDate());
         KeyHolder keyHolder = new GeneratedKeyHolder();
         namedParameterJdbcTemplate.update(createQuery, mapSqlParameterSource, keyHolder, new String[]{"id"});
-        return findById((Long) keyHolder.getKey());
+        return findById((Long) keyHolder.getKey()).get();
     }
 
     @Override
     public GiftCertificate update(GiftCertificate object) {
         Long objectId = object.getId();
-        GiftCertificate existingCertificate = findById(objectId);
-        if (existingCertificate == null) {
-            System.out.println("No Gift certificate found with ID " + objectId);
-            return null;
-        }
+        GiftCertificate existingCertificate = findById(objectId).get();
         StringBuilder updateCertificateQuery = new StringBuilder("UPDATE gift_certificate SET");
         boolean needToUpdate = false;
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
@@ -98,7 +95,7 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
             updateCertificateQuery.deleteCharAt(updateCertificateQuery.length() - 1);
             updateCertificateQuery.append(" WHERE id=:id");
             namedParameterJdbcTemplate.update(updateCertificateQuery.toString(), mapSqlParameterSource);
-            return findById(objectId);
+            return findById(objectId).get();
         }
         return existingCertificate;
     }

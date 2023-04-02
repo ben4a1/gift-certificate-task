@@ -4,7 +4,7 @@ import ru.clevertec.ecl.dal.entity.GiftCertificate;
 
 import java.util.List;
 
-public interface GiftCertificateRepository extends CrudRepository<GiftCertificate, Long> {
+public interface GiftCertificateRepository extends Repository<GiftCertificate, Long> {
 
     List<GiftCertificate> findByPartOfName(String partOfName);
 

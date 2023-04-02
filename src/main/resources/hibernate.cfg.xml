@@ -8,8 +8,10 @@
         <property name="connection.username">postgres</property>
         <property name="connection.password">1234Qwer</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
+
         <mapping class="ru.clevertec.ecl.dal.entity.GiftCertificate"/>
         <mapping class="ru.clevertec.ecl.dal.entity.Tag"/>
+
 
     </session-factory>
 </hibernate-configuration>

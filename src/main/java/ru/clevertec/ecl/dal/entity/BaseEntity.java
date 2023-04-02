@@ -1,21 +1,21 @@
 package ru.clevertec.ecl.dal.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @SuperBuilder(toBuilder = true)
-public abstract class BaseEntity {
+public abstract class BaseEntity<T extends Serializable> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private T id;
 }
