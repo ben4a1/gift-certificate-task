@@ -2,7 +2,7 @@ package ru.clevertec.ecl.service.mapper;
 
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
-import ru.clevertec.ecl.dal.dto.TagDto;
+import ru.clevertec.ecl.service.dto.TagDto;
 import ru.clevertec.ecl.dal.entity.Tag;
 
 import java.util.List;

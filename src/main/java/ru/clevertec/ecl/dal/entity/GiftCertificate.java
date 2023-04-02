@@ -4,7 +4,6 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -18,6 +17,7 @@ import java.util.List;
 @SuperBuilder(builderMethodName = "aGiftCertificate", toBuilder = true)
 @Entity
 @Table(name = "gift_certificate")
+@ToString(callSuper = true)
 @AttributeOverride(name = "id", column = @Column(name = "gift_certificate_id"))
 public class GiftCertificate extends BaseEntity<Long> {
 

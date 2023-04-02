@@ -1,10 +1,15 @@
-package ru.clevertec.ecl.dal.dao;
+package ru.clevertec.ecl;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import ru.clevertec.ecl.dal.dao.impl.GiftCertificateRepositoryHibernate;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.dal.entity.Tag;
 import ru.clevertec.ecl.utils.HibernateUtil;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +20,19 @@ import static java.time.LocalDateTime.*;
 public class HibernateMain {
     private static List<GiftCertificate> gifts;
     private static List<Tag> tags;
-    private static SessionFactory sessionFactory;
 
     public static void main(String[] args) {
+        try (var sessionFactory = HibernateUtil.getSessionFactory()) {
 
+            var session = (Session) Proxy.newProxyInstance(SessionFactory.class.getClassLoader(), new Class[]{Session.class},
+                    (proxy, method, args1) -> method.invoke(sessionFactory.getCurrentSession(), args1));
+            session.beginTransaction();
+
+            var certificateRepository = new GiftCertificateRepositoryHibernate(session);
+            certificateRepository.findById(2L).ifPresent(System.out::println);
+
+            session.getTransaction().commit();
+        }
     }
 
     private static List<GiftCertificate> getCertificates() {

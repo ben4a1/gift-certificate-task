@@ -1,24 +1,10 @@
 package ru.clevertec.ecl.service;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.clevertec.ecl.dal.dto.GiftCertificateDto;
-import ru.clevertec.ecl.dal.entity.GiftCertificate;
-import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
-import ru.clevertec.ecl.dal.dao.GiftCertificateTagRepository;
-import ru.clevertec.ecl.dal.dao.TagRepository;
-import ru.clevertec.ecl.service.mapper.GiftCertificateMapper;
-import ru.clevertec.ecl.service.service.impl.GiftCertificateServiceImpl;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)

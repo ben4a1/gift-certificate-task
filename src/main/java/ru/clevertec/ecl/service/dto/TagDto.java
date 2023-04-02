@@ -1,4 +1,4 @@
-package ru.clevertec.ecl.dal.dto;
+package ru.clevertec.ecl.service.dto;
 
 import lombok.Builder;
 import lombok.Data;

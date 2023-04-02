@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @SuperBuilder(toBuilder = true)
+@ToString
 public abstract class BaseEntity<T extends Serializable> {
 
     @Id

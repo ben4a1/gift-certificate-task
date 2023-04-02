@@ -14,6 +14,7 @@ import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
@@ -44,6 +45,11 @@ public class GiftCertificateRepositoryImpl implements GiftCertificateRepository 
             throw new RuntimeException();
         }
         return Optional.ofNullable(certificate);
+    }
+
+    @Override
+    public Optional<GiftCertificate> findById(Long id, Map<String, Object> properties) {
+        return Optional.empty();
     }
 
     @Override

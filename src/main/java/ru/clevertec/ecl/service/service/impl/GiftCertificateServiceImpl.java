@@ -2,7 +2,7 @@ package ru.clevertec.ecl.service.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.clevertec.ecl.dal.dto.GiftCertificateDto;
+import ru.clevertec.ecl.service.dto.GiftCertificateDto;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.dal.entity.Tag;
 import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
