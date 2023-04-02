@@ -1,18 +1,13 @@
 package ru.clevertec.ecl.dal.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(of = {"name"}, callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -22,6 +17,10 @@ import java.util.List;
 @AttributeOverride(name = "id", column = @Column(name = "tag_id"))
 public class Tag extends BaseEntity{
 
+    @Column(nullable = false, unique = true)
     private String name;
-    private List<GiftCertificate> giftCertificates;
+    @ToString.Exclude
+    @Builder.Default
+    @ManyToMany(mappedBy = "tagList")
+    private List<GiftCertificate> giftCertificates = new ArrayList<>();
 }

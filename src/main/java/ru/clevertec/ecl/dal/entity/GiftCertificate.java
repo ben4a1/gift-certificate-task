@@ -1,9 +1,6 @@
 package ru.clevertec.ecl.dal.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
@@ -11,6 +8,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -29,5 +27,9 @@ public class GiftCertificate extends BaseEntity implements Serializable {
     private LocalDateTime createDate;
     private LocalDateTime lastUpdateDate;
     private Duration duration;
-    private List<Tag> tagList;
+    @ToString.Exclude
+    @Builder.Default
+    @ManyToMany
+    @JoinTable()
+    private List<Tag> tagList = new ArrayList<>();
 }

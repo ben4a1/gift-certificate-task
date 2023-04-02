@@ -19,8 +19,7 @@ CREATE TABLE IF NOT EXISTS tag
 
 CREATE TABLE IF NOT EXISTS certificate_tag
 (
-    gift_certificate_id BIGSERIAL NOT NULL REFERENCES gift_certificate ON DELETE CASCADE,
-    tag_id              BIGSERIAL NOT NULL REFERENCES tag ON DELETE CASCADE,
-    UNIQUE (gift_certificate_id, tag_id)
+    gift_certificate_id BIGSERIAL REFERENCES gift_certificate (gift_certificate_id) ON DELETE CASCADE,
+    tag_id              BIGSERIAL REFERENCES tag (tag_id) ON DELETE CASCADE,
+    PRIMARY KEY (gift_certificate_id, tag_id)
 );
-
