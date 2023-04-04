@@ -1,7 +1,8 @@
-package ru.clevertec.ecl.service.mapper;
+package ru.clevertec.ecl.service.mapper.hibernate;
 
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.dto.GiftCertificateCreateDto;
+import ru.clevertec.ecl.service.mapper.Mapper;
 
 
 import static java.time.LocalDateTime.*;

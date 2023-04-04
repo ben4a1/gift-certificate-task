@@ -5,10 +5,11 @@ import ru.clevertec.ecl.dal.dao.impl.GiftCertificateRepository;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.dto.GiftCertificateCreateDto;
 import ru.clevertec.ecl.service.dto.GiftCertificateReadDto;
-import ru.clevertec.ecl.service.mapper.GiftCertificateCreateMapper;
-import ru.clevertec.ecl.service.mapper.GiftCertificateReadMapper;
+import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateCreateMapper;
+import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateReadMapper;
 import ru.clevertec.ecl.service.mapper.Mapper;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -17,18 +18,25 @@ public class GiftCertificateService {
     private final GiftCertificateReadMapper giftCertificateReadMapper;
     private final GiftCertificateCreateMapper giftCertificateCreateMapper;
 
-public Long create(GiftCertificateCreateDto giftCertificateDto){
-    //validation
-    GiftCertificate giftCertificate = giftCertificateCreateMapper.mapFrom(giftCertificateDto);
-    return giftCertificateRepository.create(giftCertificate).getId();
-}
-    public <T> Optional<T> findById(Long id, Mapper<GiftCertificate, T> mapper){
+    @Transactional
+    public Long create(GiftCertificateCreateDto giftCertificateDto) {
+        //validation
+        GiftCertificate giftCertificate = giftCertificateCreateMapper.mapFrom(giftCertificateDto);
+        return giftCertificateRepository.create(giftCertificate).getId();
+    }
+
+    @Transactional
+    public <T> Optional<T> findById(Long id, Mapper<GiftCertificate, T> mapper) {
         return giftCertificateRepository.findById(id)
                 .map(mapper::mapFrom);
     }
-    public Optional<GiftCertificateReadDto> findById(Long id){
+
+    @Transactional
+    public Optional<GiftCertificateReadDto> findById(Long id) {
         return findById(id, giftCertificateReadMapper);
     }
+
+    @Transactional
     public boolean delete(Long id) {
         var maybeCertificate = giftCertificateRepository.findById(id);
         maybeCertificate.ifPresent(giftCertificate -> giftCertificateRepository.delete(giftCertificate.getId()));

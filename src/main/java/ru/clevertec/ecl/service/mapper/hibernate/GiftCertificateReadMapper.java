@@ -1,7 +1,8 @@
-package ru.clevertec.ecl.service.mapper;
+package ru.clevertec.ecl.service.mapper.hibernate;
 
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.dto.GiftCertificateReadDto;
+import ru.clevertec.ecl.service.mapper.Mapper;
 
 public class GiftCertificateReadMapper implements Mapper<GiftCertificate, GiftCertificateReadDto> {
 

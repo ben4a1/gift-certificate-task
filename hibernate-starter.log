@@ -79,3 +79,12 @@
 [2023-04-04 23:27:53,554] INFO [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl: 322] HHH000115: Hibernate connection pool size: 20 (min=1)
 [2023-04-04 23:27:56,321] INFO [org.hibernate.dialect.Dialect: 175] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
 [2023-04-04 23:27:59,294] INFO [org.hibernate.orm.connections.pooling: 550] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
+[2023-04-04 23:59:11,483] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 5.6.15.Final
+[2023-04-04 23:59:12,579] INFO [org.hibernate.annotations.common.Version: 56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2023-04-04 23:59:13,151] WARN [org.hibernate.orm.connections.pooling: 75] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2023-04-04 23:59:13,189] INFO [org.hibernate.orm.connections.pooling: 119] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/postgres]
+[2023-04-04 23:59:13,190] INFO [org.hibernate.orm.connections.pooling: 128] HHH10001001: Connection properties: {password=****, user=postgres}
+[2023-04-04 23:59:13,190] INFO [org.hibernate.orm.connections.pooling: 132] HHH10001003: Autocommit mode: false
+[2023-04-04 23:59:13,199] INFO [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl: 322] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2023-04-04 23:59:17,019] INFO [org.hibernate.dialect.Dialect: 175] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+[2023-04-04 23:59:20,349] INFO [org.hibernate.orm.connections.pooling: 550] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
