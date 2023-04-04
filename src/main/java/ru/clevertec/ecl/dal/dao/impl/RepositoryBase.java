@@ -12,32 +12,33 @@ import java.util.Map;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-public abstract class RepositoryBase<T extends BaseEntity<K>, K extends Serializable> implements Repository<T, K> {
+public abstract class RepositoryBase<E extends BaseEntity<K>, K extends Serializable> implements Repository<E, K> {
 
-    private final Class<T> clazz;
+    private final Class<E> clazz;
     @Getter
     private final EntityManager entityManager;
 
     @Override
-    public Optional<T> findById(K id, Map<String, Object> properties) {
+    public Optional<E> findById(K id, Map<String, Object> properties) {
         return Optional.ofNullable(entityManager.find(clazz, id, properties));
     }
 
     @Override
-    public List<T> findAll() {
+    public List<E> findAll() {
         var criteriaQuery = entityManager.getCriteriaBuilder().createQuery(clazz);
         criteriaQuery.from(clazz);
-        return entityManager.createQuery(criteriaQuery).getResultList();
+        return entityManager.createQuery(criteriaQuery)
+                .getResultList();
     }
 
     @Override
-    public T create(T object) {
+    public E create(E object) {
         entityManager.persist(object);
         return object;
     }
 
     @Override
-    public T update(T object) {
+    public E update(E object) {
         entityManager.merge(object);
         return object;
     }

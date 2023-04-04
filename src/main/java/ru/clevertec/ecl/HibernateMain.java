@@ -2,13 +2,11 @@ package ru.clevertec.ecl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import ru.clevertec.ecl.dal.dao.impl.GiftCertificateRepositoryHibernate;
+import ru.clevertec.ecl.dal.dao.impl.GiftCertificateRepository;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.dal.entity.Tag;
 import ru.clevertec.ecl.utils.HibernateUtil;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -28,7 +26,7 @@ public class HibernateMain {
                     (proxy, method, args1) -> method.invoke(sessionFactory.getCurrentSession(), args1));
             session.beginTransaction();
 
-            var certificateRepository = new GiftCertificateRepositoryHibernate(session);
+            var certificateRepository = new GiftCertificateRepository( session);
             certificateRepository.findById(2L).ifPresent(System.out::println);
 
             session.getTransaction().commit();

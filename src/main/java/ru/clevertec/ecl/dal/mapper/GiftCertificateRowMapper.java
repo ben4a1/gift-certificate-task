@@ -1,4 +1,4 @@
-package ru.clevertec.ecl.dal.dao.impl;
+package ru.clevertec.ecl.dal.mapper;
 
 import org.postgresql.util.PGInterval;
 import org.springframework.jdbc.core.RowMapper;
