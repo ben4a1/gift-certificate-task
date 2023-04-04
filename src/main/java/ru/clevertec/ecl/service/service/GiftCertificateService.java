@@ -10,6 +10,7 @@ import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateReadMapper;
 import ru.clevertec.ecl.service.mapper.Mapper;
 
 import javax.transaction.Transactional;
+import javax.validation.*;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -20,7 +21,12 @@ public class GiftCertificateService {
 
     @Transactional
     public Long create(GiftCertificateCreateDto giftCertificateDto) {
-        //validation
+        var validatorFactory = Validation.buildDefaultValidatorFactory();
+        var validator = validatorFactory.getValidator();
+        var validationResult = validator.validate(giftCertificateDto);
+        if (!validationResult.isEmpty()) {
+            throw new ConstraintViolationException(validationResult);
+        }
         GiftCertificate giftCertificate = giftCertificateCreateMapper.mapFrom(giftCertificateDto);
         return giftCertificateRepository.create(giftCertificate).getId();
     }

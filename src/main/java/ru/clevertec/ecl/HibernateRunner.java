@@ -44,8 +44,8 @@ public class HibernateRunner {
 
             giftCertificateService.findById(3L).ifPresent(System.out::println);
             GiftCertificateCreateDto giftCertificateCreateDto = new GiftCertificateCreateDto(
-                    "gift",
-                    "gift certificate vai-vai",
+                    "qwe",
+                    "gift certificate vai-vai-vai",
                     new BigDecimal(100500),
                     Duration.ofDays(15));
             Long aLong = giftCertificateService.create(giftCertificateCreateDto);
