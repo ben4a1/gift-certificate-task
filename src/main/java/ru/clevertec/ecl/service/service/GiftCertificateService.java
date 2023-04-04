@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 public class GiftCertificateService {
+
     private final GiftCertificateRepository giftCertificateRepository;
     private final GiftCertificateReadMapper giftCertificateReadMapper;
     private final GiftCertificateCreateMapper giftCertificateCreateMapper;
