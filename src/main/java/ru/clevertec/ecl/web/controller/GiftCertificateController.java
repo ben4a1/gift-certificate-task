@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.clevertec.ecl.service.dto.GiftCertificateDto;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
-import ru.clevertec.ecl.service.service.GiftCertificateService;
+import ru.clevertec.ecl.service.service.GiftCertificateServiceTOdelete;
 
 import java.util.List;
 import java.util.Map;
@@ -14,10 +14,10 @@ import java.util.Map;
 @RestController
 public class GiftCertificateController {
 
-    private final GiftCertificateService giftCertificateService;
+    private final GiftCertificateServiceTOdelete giftCertificateService;
 
     @Autowired
-    public GiftCertificateController(GiftCertificateService giftCertificateService) {
+    public GiftCertificateController(GiftCertificateServiceTOdelete giftCertificateService) {
         this.giftCertificateService = giftCertificateService;
     }
     @GetMapping(value="/certificates", produces = "application/json")

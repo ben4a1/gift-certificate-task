@@ -5,17 +5,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.service.service.TagService;
+import ru.clevertec.ecl.service.service.TagServiceToDelete;
 
 import java.util.List;
 
 @RestController
 public class TagController {
 
-    private TagService tagService;
+    private TagServiceToDelete tagService;
 
     @Autowired
-    public TagController(TagService tagService) {
+    public TagController(TagServiceToDelete tagService) {
         this.tagService = tagService;
     }
 

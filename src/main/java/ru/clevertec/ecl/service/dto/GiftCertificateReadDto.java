@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public record GiftCertificateReadDto(Long id,
-                                     String name,
+public record GiftCertificateReadDto(String name,
                                      String description,
                                      BigDecimal price,
                                      LocalDateTime createDate,
