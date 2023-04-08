@@ -49,6 +49,7 @@ public class HibernateRunner {
                     new BigDecimal(100500),
                     Duration.ofDays(15));
             Long aLong = giftCertificateService.create(giftCertificateCreateDto);
+            giftCertificateService.findAll().forEach(System.out::println);
         }
     }
 }

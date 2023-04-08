@@ -1,43 +1,47 @@
 package ru.clevertec.ecl.web.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.service.service.TagServiceToDelete;
+import ru.clevertec.ecl.service.dto.TagCreateDto;
+import ru.clevertec.ecl.service.dto.TagReadDto;
+import ru.clevertec.ecl.service.service.TagService;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class TagController {
 
-    private TagServiceToDelete tagService;
+    private TagService tagService;
 
     @Autowired
-    public TagController(TagServiceToDelete tagService) {
+    public TagController(TagService tagService) {
         this.tagService = tagService;
     }
 
     @GetMapping(value="/tags", produces = "application/json")
-    public ResponseEntity<List<Tag>> tags() {
+    public ResponseEntity<List<TagReadDto>> tags() {
 
-        List<Tag> tags = tagService.findAll();
-        return new ResponseEntity<>(tags, HttpStatus.OK);
+        List<TagReadDto> tagReadDtos = tagService.findAll();
+        return new ResponseEntity<>(tagReadDtos, HttpStatus.OK);
     }
 
     @PostMapping(value="/tags", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Tag> createTag(@RequestBody Tag tag) {
+    public ResponseEntity<Long> createTag(@RequestBody TagCreateDto tagCreateDto) {
 
-        Tag newTag = tagService.create(tag);
-        return new ResponseEntity<>(newTag, HttpStatus.OK);
+        Long id = tagService.create(tagCreateDto);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
     @PutMapping(value = "/tags/{id}", consumes = {"application/json"}, produces = {"application/json"})
-    public ResponseEntity<Tag> updateTag(@PathVariable Long id, @RequestBody Tag tag) {
+    public ResponseEntity<TagReadDto> updateTag(@PathVariable Long id, @RequestBody Tag tag) {
         tag.setId(id);
-        Tag updateTag = tagService.update(tag);
-        return new ResponseEntity<>(updateTag, HttpStatus.OK);
+        TagReadDto tagReadDto = tagService.update(tag);
+        return new ResponseEntity<>(tagReadDto, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/tags/{id}", produces = {"application/json"})

@@ -39,8 +39,7 @@ public abstract class RepositoryBase<E extends BaseEntity<K>, K extends Serializ
 
     @Override
     public E update(E object) {
-        entityManager.merge(object);
-        return object;
+        return entityManager.merge(object);
     }
 
     @Override
