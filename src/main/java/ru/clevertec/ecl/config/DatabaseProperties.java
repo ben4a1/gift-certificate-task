@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
 @Profile("prod")
-public class JdbcConfig {
+public class DatabaseProperties {
 
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
@@ -30,28 +30,9 @@ public class JdbcConfig {
     @Value("${spring.datasource.password}")
     private String dataSourcePassword;
 
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl(dataSourceUrl);
-        dataSource.setUsername(dataSourceUsername);
-        dataSource.setPassword(dataSourcePassword);
-        dataSource.setDriverClassName(driverClassName);
-        return dataSource;
-    }
 
-    @Bean
-    public NamedParameterJdbcTemplate jdbcTemplate() {
-        return new NamedParameterJdbcTemplate(dataSource());
-    }
-
-    @Bean
-    public TransactionManager transactionManager(DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource);
-    }
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
+    public static class PoolProperties {
+        private Integer size;
+        private Integer timeout;
     }
 }

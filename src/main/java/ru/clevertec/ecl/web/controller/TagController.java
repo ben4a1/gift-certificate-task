@@ -12,16 +12,10 @@ import ru.clevertec.ecl.service.service.TagService;
 
 import java.util.List;
 
-@RestController
 @RequiredArgsConstructor
 public class TagController {
 
     private TagService tagService;
-
-    @Autowired
-    public TagController(TagService tagService) {
-        this.tagService = tagService;
-    }
 
     @GetMapping(value="/tags", produces = "application/json")
     public ResponseEntity<List<TagReadDto>> tags() {

@@ -1,5 +1,7 @@
 package ru.clevertec.ecl.service.service;
 
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validation;
 import lombok.RequiredArgsConstructor;
 import ru.clevertec.ecl.dal.dao.impl.GiftCertificateRepository;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
@@ -10,7 +12,6 @@ import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateReadMapper;
 import ru.clevertec.ecl.service.mapper.Mapper;
 
 import javax.transaction.Transactional;
-import javax.validation.*;
 import java.util.List;
 import java.util.Optional;
 

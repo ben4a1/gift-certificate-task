@@ -1,12 +1,12 @@
 package ru.clevertec.ecl.service.service;
 
 
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import ru.clevertec.ecl.dal.dao.impl.TagRepository;
-import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.service.dto.GiftCertificateReadDto;
 import ru.clevertec.ecl.service.dto.TagCreateDto;
 import ru.clevertec.ecl.service.dto.TagReadDto;
 import ru.clevertec.ecl.service.mapper.Mapper;
@@ -14,13 +14,10 @@ import ru.clevertec.ecl.service.mapper.hibernate.TagCreateMapper;
 import ru.clevertec.ecl.service.mapper.hibernate.TagReadMapper;
 
 import javax.transaction.Transactional;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Validation;
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-@Component
 public class TagService{
 
     private final TagRepository tagRepository;
