@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import ru.clevertec.ecl.dal.dao.impl.GiftCertificateRepository;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.dto.GiftCertificateCreateDto;
-import ru.clevertec.ecl.service.dto.GiftCertificateDto;
 import ru.clevertec.ecl.service.dto.GiftCertificateReadDto;
 import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateCreateMapper;
 import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateReadMapper;

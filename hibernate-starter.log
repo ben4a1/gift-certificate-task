@@ -275,3 +275,27 @@
 [2023-04-08 13:23:38,196] INFO [org.hibernate.dialect.Dialect: 175] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
 [2023-04-08 13:23:38,638] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 6.0.22.Final
 [2023-04-08 13:23:39,931] INFO [org.hibernate.orm.connections.pooling: 550] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
+[2023-04-08 13:29:44,312] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 5.6.15.Final
+[2023-04-08 13:29:45,271] INFO [org.hibernate.annotations.common.Version: 56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2023-04-08 13:29:45,443] WARN [org.hibernate.orm.connections.pooling: 75] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2023-04-08 13:29:45,446] INFO [org.hibernate.orm.connections.pooling: 119] HHH10001005: using driver [org.h2.Driver] at URL [jdbc:h2:mem:clevertec]
+[2023-04-08 13:29:45,447] INFO [org.hibernate.orm.connections.pooling: 128] HHH10001001: Connection properties: {password=****, user=}
+[2023-04-08 13:29:45,448] INFO [org.hibernate.orm.connections.pooling: 132] HHH10001003: Autocommit mode: false
+[2023-04-08 13:29:45,452] INFO [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl: 322] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2023-04-08 13:29:45,867] INFO [org.hibernate.dialect.Dialect: 175] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+[2023-04-08 13:29:46,413] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 6.0.22.Final
+[2023-04-08 13:29:47,095] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@65f3e805] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2023-04-08 13:29:47,103] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@734ce281] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2023-04-08 13:29:47,453] INFO [org.hibernate.orm.connections.pooling: 550] HHH10001008: Cleaning up connection pool [jdbc:h2:mem:clevertec]
+[2023-04-08 14:47:34,449] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 5.6.15.Final
+[2023-04-08 14:47:35,611] INFO [org.hibernate.annotations.common.Version: 56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2023-04-08 14:47:35,884] WARN [org.hibernate.orm.connections.pooling: 75] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[2023-04-08 14:47:35,888] INFO [org.hibernate.orm.connections.pooling: 119] HHH10001005: using driver [org.h2.Driver] at URL [jdbc:h2:mem:clevertec]
+[2023-04-08 14:47:35,889] INFO [org.hibernate.orm.connections.pooling: 128] HHH10001001: Connection properties: {password=****, user=}
+[2023-04-08 14:47:35,890] INFO [org.hibernate.orm.connections.pooling: 132] HHH10001003: Autocommit mode: false
+[2023-04-08 14:47:35,895] INFO [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl: 322] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2023-04-08 14:47:36,207] INFO [org.hibernate.dialect.Dialect: 175] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+[2023-04-08 14:47:36,881] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 6.0.22.Final
+[2023-04-08 14:47:37,764] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@49b89425] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2023-04-08 14:47:37,776] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@167a21b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2023-04-08 14:47:38,126] INFO [org.hibernate.orm.connections.pooling: 550] HHH10001008: Cleaning up connection pool [jdbc:h2:mem:clevertec]

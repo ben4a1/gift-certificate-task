@@ -1,12 +1,10 @@
 package ru.clevertec.ecl.web.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.clevertec.ecl.service.dto.GiftCertificateCreateDto;
-import ru.clevertec.ecl.service.dto.GiftCertificateDto;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.dto.GiftCertificateReadDto;
 import ru.clevertec.ecl.service.service.GiftCertificateService;
