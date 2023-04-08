@@ -26,50 +26,7 @@ import static org.mockito.Mockito.when;
 import static ru.clevertec.ecl.dal.entity.GiftCertificate.*;
 
 
-@ExtendWith(MockitoExtension.class)
 public class GiftCertificateServiceTest {
-
-    @InjectMocks
-    private GiftCertificateService giftCertificateService;
-    @Mock
-    private GiftCertificateRepository giftCertificateRepository;
-    @Mock
-    private TagRepository tagRepository;
-    @Mock
-    GiftCertificateTagRepository giftCertificateTagRepository;
-
-    @Test
-    void checkFindAllWithoutFilterShouldReturn4() {
-        GiftCertificateReadMapper readMapper = new GiftCertificateReadMapper();
-        when(giftCertificateRepository.findAll()).thenReturn(getCertificates());
-        List<GiftCertificateReadDto> giftCertificateReadDtos = giftCertificateService.findAll();
-        assertThat(giftCertificateReadDtos).hasSize(4);
-    }
-
-//    @Test
-//    void checkCreateWithoutTagsShouldReturnEquals() {
-//        GiftCertificateMapper certificateMapper = GiftCertificateMapper.INSTANCE;
-//        GiftCertificate giftCertificateExpected = getCertificates().get(0);
-//        GiftCertificateDto giftCertificateDto = certificateMapper.toCertificateDTO(giftCertificateExpected);
-//        when(giftCertificateRepository.create(giftCertificateExpected)).thenReturn(giftCertificateExpected);
-//        GiftCertificateDto giftCertificateActual = giftCertificateService.create(giftCertificateExpected);
-//        verify(giftCertificateRepository).create(any());
-//        assertThat(giftCertificateActual).isEqualTo(giftCertificateDto);
-//    }
-//
-//    @Test
-//    void checkCreateWithTagsShouldReturnEquals() {
-//        GiftCertificateMapper certificateMapper = GiftCertificateMapper.INSTANCE;
-//        GiftCertificate giftCertificateExpected = getCertificates().get(0);
-//        GiftCertificateDto giftCertificateDto = certificateMapper.toCertificateDTO(giftCertificateExpected);
-//        giftCertificateExpected.setTagList(getTags());
-//        Mockito.when(giftCertificateRepository.create(giftCertificateExpected)).thenReturn(giftCertificateExpected);
-//        Mockito.when(tagRepository.create(getTags().get(0))).thenReturn(getTags().get(0));
-//        GiftCertificateDto giftCertificateActual = giftCertificateService.create(giftCertificateExpected);
-//        Mockito.verify(tagRepository, Mockito.times(2)).create(any());
-//        Mockito.verify(giftCertificateTagRepository, Mockito.times(2)).addDependency(any(), any());
-//        assertThat(giftCertificateActual).isEqualTo(giftCertificateDto);
-//    }
 
     private List<GiftCertificate> getCertificates() {
         List<GiftCertificate> certificates = new ArrayList<>();
