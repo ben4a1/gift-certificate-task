@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS gift_certificate
     price               DECIMAL(10, 2) NOT NULL,
     create_date         TIMESTAMP      NOT NULL,
     last_update_date    TIMESTAMP,
-    duration            BIGINT         NOT NULL
+    duration            INTERVAL       NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS tag
@@ -20,15 +20,16 @@ CREATE TABLE IF NOT EXISTS tag
 CREATE TABLE IF NOT EXISTS users
 (
     user_id BIGSERIAL PRIMARY KEY,
-    name    VARCHAR(64) NOT NULL UNIQUE
+    name    VARCHAR(64) NOT NULL UNIQUE,
+    role    VARCHAR(64)
 );
 
 CREATE TABLE IF NOT EXISTS users_certificate
 (
-  id BIGSERIAL PRIMARY KEY,
-  user_id BIGINT NOT NULL REFERENCES users(user_id),
-  gift_certificate_id BIGINT NOT NULL REFERENCES gift_certificate(gift_certificate_id),
-  UNIQUE (user_id, gift_certificate_id)
+    id                  BIGSERIAL PRIMARY KEY,
+    user_id             BIGINT NOT NULL REFERENCES users (user_id),
+    gift_certificate_id BIGINT NOT NULL REFERENCES gift_certificate (gift_certificate_id),
+    UNIQUE (user_id, gift_certificate_id)
 );
 
 CREATE TABLE IF NOT EXISTS certificate_tag

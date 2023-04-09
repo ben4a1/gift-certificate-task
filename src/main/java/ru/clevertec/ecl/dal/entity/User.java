@@ -1,25 +1,31 @@
 package ru.clevertec.ecl.dal.entity;
 
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
 @AttributeOverride(name = "id", column = @Column(name = "user_id"))
+@SuperBuilder(builderMethodName = "aUser", toBuilder = true)
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder(builderMethodName = "aUser", toBuilder = true)
+@Data
 @ToString(callSuper = true)
-public class User extends BaseEntity<Long>{
+public class User extends BaseEntity<Long> {
 
+    @Column(unique = true, nullable = false)
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Builder.Default
+    @OneToMany(mappedBy = "user")
+    private List<UserGiftCertificate> userGiftCertificates = new ArrayList<>();
 }
 

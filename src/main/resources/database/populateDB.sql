@@ -7,11 +7,11 @@ FROM tag
 WHERE tag_id > -1;
 
 INSERT INTO gift_certificate
-VALUES (1, 'name', 'description', 123312.12, now(), now(), 15),
-       (2, 'cosmetics', 'gift certificate for cosmetics stores', 150.15, now(), now(), 30),
-       (3, 'auto', 'gift certificate for car service stations', 1000, '2018-08-29T06:12:15.156', now(), 90),
-       (4, 'flower', 'gift certificate for flower shops', 75.8, now(), now(), 10),
-       (5, 'cloth', 'gift certificate for clothing stores', 100, '2015-04-15T06:10:15.156', now(), 45);
+VALUES (1, 'name', 'description', 123312.12, now(), now(), '40 0:00:00'),
+       (2, 'cosmetics', 'gift certificate for cosmetics stores', 150.15, now(), now(), '15 00:00:00'),
+       (3, 'auto', 'gift certificate for car service stations', 1000, '2018-08-29T06:12:15.156', now(), '90 0:00:00'),
+       (4, 'flower', 'gift certificate for flower shops', 75.8, now(), now(), '10 0:00:00'),
+       (5, 'cloth', 'gift certificate for clothing stores', 100, '2015-04-15T06:10:15.156', now(), '45 0:00:00');
 
 INSERT INTO tag
 VALUES (1, '01 april'),

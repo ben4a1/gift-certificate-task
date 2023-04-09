@@ -4,8 +4,7 @@ package ru.clevertec.ecl.service.service;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-import ru.clevertec.ecl.dal.dao.impl.TagRepository;
+import ru.clevertec.ecl.dal.dao.TagRepository;
 import ru.clevertec.ecl.dal.entity.Tag;
 import ru.clevertec.ecl.service.dto.TagCreateDto;
 import ru.clevertec.ecl.service.dto.TagReadDto;
@@ -33,7 +32,7 @@ public class TagService{
             throw new ConstraintViolationException(validationResult);
         }
         Tag tag = tagCreateMapper.mapFrom(tagDto);
-        return tagRepository.create(tag).getId();
+        return tagRepository.save(tag).getId();
     }
 
     @Transactional
@@ -50,7 +49,7 @@ public class TagService{
     @Transactional
     public boolean delete(Long id) {
         var maybeCertificate = tagRepository.findById(id);
-        maybeCertificate.ifPresent(Tag -> tagRepository.delete(Tag.getId()));
+        maybeCertificate.ifPresent(tagRepository::delete);
         return maybeCertificate.isPresent();
     }
 
@@ -59,6 +58,6 @@ public class TagService{
     }
 
     public TagReadDto update(Tag tag) {
-        return tagReadMapper.mapFrom(tagRepository.update(tag));
+        return tagReadMapper.mapFrom(tagRepository.save(tag));
     }
 }

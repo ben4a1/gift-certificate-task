@@ -3,7 +3,8 @@ package ru.clevertec.ecl.service.service;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validation;
 import lombok.RequiredArgsConstructor;
-import ru.clevertec.ecl.dal.dao.impl.GiftCertificateRepository;
+import org.springframework.stereotype.Service;
+import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.dto.GiftCertificateCreateDto;
 import ru.clevertec.ecl.service.dto.GiftCertificateReadDto;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Service
 public class GiftCertificateService {
 
     private final GiftCertificateRepository giftCertificateRepository;
@@ -31,7 +33,7 @@ public class GiftCertificateService {
             throw new ConstraintViolationException(validationResult);
         }
         GiftCertificate giftCertificate = giftCertificateCreateMapper.mapFrom(giftCertificateDto);
-        return giftCertificateRepository.create(giftCertificate).getId();
+        return giftCertificateRepository.save(giftCertificate).getId();
     }
 
     @Transactional
@@ -48,7 +50,7 @@ public class GiftCertificateService {
     @Transactional
     public boolean delete(Long id) {
         var maybeCertificate = giftCertificateRepository.findById(id);
-        maybeCertificate.ifPresent(giftCertificate -> giftCertificateRepository.delete(giftCertificate.getId()));
+        maybeCertificate.ifPresent(giftCertificateRepository::delete);
         return maybeCertificate.isPresent();
     }
 
@@ -57,6 +59,6 @@ public class GiftCertificateService {
     }
 
     public GiftCertificateReadDto update(GiftCertificate certificate) {
-        return giftCertificateReadMapper.mapFrom(giftCertificateRepository.update(certificate));
+        return giftCertificateReadMapper.mapFrom(giftCertificateRepository.save(certificate));
     }
 }
