@@ -14,9 +14,11 @@ import java.util.List;
 @SuperBuilder(builderMethodName = "aTag", toBuilder = true)
 @Entity
 @Table(name = "tag")
-@AttributeOverride(name = "id", column = @Column(name = "tag_id"))
-public class Tag extends BaseEntity<Long>{
+public class Tag implements BaseEntity<Long>{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(nullable = false, unique = true)
     private String name;
     @ToString.Exclude

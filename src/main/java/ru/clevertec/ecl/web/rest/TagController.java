@@ -1,7 +1,6 @@
-package ru.clevertec.ecl.web.controller;
+package ru.clevertec.ecl.web.rest;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

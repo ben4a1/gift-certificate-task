@@ -20,8 +20,11 @@ import java.util.List;
 @Table(name = "gift_certificate")
 @ToString(callSuper = true)
 @AttributeOverride(name = "id", column = @Column(name = "gift_certificate_id"))
-public class GiftCertificate extends BaseEntity<Long> {
+public class GiftCertificate implements BaseEntity<Long> {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String description;
     private BigDecimal price;

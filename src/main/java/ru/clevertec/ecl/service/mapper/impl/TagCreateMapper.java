@@ -1,4 +1,4 @@
-package ru.clevertec.ecl.service.mapper.hibernate;
+package ru.clevertec.ecl.service.mapper.impl;
 
 import ru.clevertec.ecl.dal.entity.Tag;
 import ru.clevertec.ecl.service.dto.TagCreateDto;
@@ -8,9 +8,9 @@ import static ru.clevertec.ecl.dal.entity.Tag.*;
 
 public class TagCreateMapper implements Mapper<TagCreateDto, Tag> {
     @Override
-    public Tag mapFrom(TagCreateDto obj) {
+    public Tag map(TagCreateDto object) {
         return aTag()
-                .name(obj.name())
+                .name(object.name())
                 .build();
     }
 }

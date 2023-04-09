@@ -7,13 +7,16 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @Table(name = "users_certificate")
 @SuperBuilder
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode()
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ToString(callSuper = true)
-public class UserGiftCertificate extends BaseEntity<Long>{
+public class UserGiftCertificate implements BaseEntity<Long>{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

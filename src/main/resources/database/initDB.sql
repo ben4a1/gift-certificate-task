@@ -19,9 +19,12 @@ CREATE TABLE IF NOT EXISTS tag
 
 CREATE TABLE IF NOT EXISTS users
 (
-    user_id BIGSERIAL PRIMARY KEY,
-    name    VARCHAR(64) NOT NULL UNIQUE,
-    role    VARCHAR(64)
+    user_id    BIGSERIAL PRIMARY KEY,
+    username   VARCHAR(64) NOT NULL UNIQUE,
+    birth_date DATE,
+    firstname  VARCHAR(64),
+    lastname   VARCHAR(64),
+    role       VARCHAR(32)
 );
 
 CREATE TABLE IF NOT EXISTS users_certificate

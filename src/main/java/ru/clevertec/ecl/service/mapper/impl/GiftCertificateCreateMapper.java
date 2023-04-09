@@ -1,4 +1,4 @@
-package ru.clevertec.ecl.service.mapper.hibernate;
+package ru.clevertec.ecl.service.mapper.impl;
 
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.dto.GiftCertificateCreateDto;
@@ -10,12 +10,11 @@ import static ru.clevertec.ecl.dal.entity.GiftCertificate.*;
 
 public class GiftCertificateCreateMapper implements Mapper<GiftCertificateCreateDto, GiftCertificate> {
     @Override
-    public GiftCertificate mapFrom(GiftCertificateCreateDto obj) {
+    public GiftCertificate map(GiftCertificateCreateDto object) {
         return aGiftCertificate()
-                .name(obj.name())
-                .description(obj.description())
-                .price(obj.price())
-                .duration(obj.duration())
+                .name(object.name())
+                .description(object.description())
+                .price(object.price())
                 .createDate(now())
                 .lastUpdateDate(now())
                 .build();

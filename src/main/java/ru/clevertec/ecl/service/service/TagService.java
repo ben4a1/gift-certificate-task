@@ -4,19 +4,22 @@ package ru.clevertec.ecl.service.service;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import ru.clevertec.ecl.dal.dao.TagRepository;
 import ru.clevertec.ecl.dal.entity.Tag;
 import ru.clevertec.ecl.service.dto.TagCreateDto;
 import ru.clevertec.ecl.service.dto.TagReadDto;
 import ru.clevertec.ecl.service.mapper.Mapper;
-import ru.clevertec.ecl.service.mapper.hibernate.TagCreateMapper;
-import ru.clevertec.ecl.service.mapper.hibernate.TagReadMapper;
 
 import org.springframework.transaction.annotation.Transactional;
+import ru.clevertec.ecl.service.mapper.impl.TagCreateMapper;
+import ru.clevertec.ecl.service.mapper.impl.TagReadMapper;
+
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Service
 public class TagService{
 
     private final TagRepository tagRepository;
@@ -31,14 +34,14 @@ public class TagService{
         if (!validationResult.isEmpty()) {
             throw new ConstraintViolationException(validationResult);
         }
-        Tag tag = tagCreateMapper.mapFrom(tagDto);
+        Tag tag = tagCreateMapper.map(tagDto);
         return tagRepository.save(tag).getId();
     }
 
     @Transactional
     public <T> Optional<T> findById(Long id, Mapper<Tag, T> mapper) {
         return tagRepository.findById(id)
-                .map(mapper::mapFrom);
+                .map(mapper::map);
     }
 
     @Transactional
@@ -58,6 +61,6 @@ public class TagService{
     }
 
     public TagReadDto update(Tag tag) {
-        return tagReadMapper.mapFrom(tagRepository.save(tag));
+        return tagReadMapper.map(tagRepository.save(tag));
     }
 }

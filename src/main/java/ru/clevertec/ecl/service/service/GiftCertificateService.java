@@ -8,11 +8,12 @@ import ru.clevertec.ecl.dal.dao.GiftCertificateRepository;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.service.dto.GiftCertificateCreateDto;
 import ru.clevertec.ecl.service.dto.GiftCertificateReadDto;
-import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateCreateMapper;
-import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateReadMapper;
+import ru.clevertec.ecl.service.mapper.impl.GiftCertificateCreateMapper;
 import ru.clevertec.ecl.service.mapper.Mapper;
 
 import org.springframework.transaction.annotation.Transactional;
+import ru.clevertec.ecl.service.mapper.impl.GiftCertificateReadMapper;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -32,14 +33,14 @@ public class GiftCertificateService {
         if (!validationResult.isEmpty()) {
             throw new ConstraintViolationException(validationResult);
         }
-        GiftCertificate giftCertificate = giftCertificateCreateMapper.mapFrom(giftCertificateDto);
+        GiftCertificate giftCertificate = giftCertificateCreateMapper.map(giftCertificateDto);
         return giftCertificateRepository.save(giftCertificate).getId();
     }
 
     @Transactional
     public <T> Optional<T> findById(Long id, Mapper<GiftCertificate, T> mapper) {
         return giftCertificateRepository.findById(id)
-                .map(mapper::mapFrom);
+                .map(mapper::map);
     }
 
     @Transactional
@@ -55,10 +56,10 @@ public class GiftCertificateService {
     }
 
     public List<GiftCertificateReadDto> findAll() {
-        return giftCertificateRepository.findAll().stream().map(giftCertificateReadMapper::mapFrom).toList();
+        return giftCertificateRepository.findAll().stream().map(giftCertificateReadMapper::map).toList();
     }
 
     public GiftCertificateReadDto update(GiftCertificate certificate) {
-        return giftCertificateReadMapper.mapFrom(giftCertificateRepository.save(certificate));
+        return giftCertificateReadMapper.map(giftCertificateRepository.save(certificate));
     }
 }
