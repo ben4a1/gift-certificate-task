@@ -13,7 +13,7 @@ import ru.clevertec.ecl.service.mapper.Mapper;
 import ru.clevertec.ecl.service.mapper.hibernate.TagCreateMapper;
 import ru.clevertec.ecl.service.mapper.hibernate.TagReadMapper;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 

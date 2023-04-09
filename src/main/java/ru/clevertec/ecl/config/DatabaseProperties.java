@@ -2,18 +2,11 @@ package ru.clevertec.ecl.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan("ru.clevertec.ecl")
-@PropertySource("classpath:database.properties")
+@PropertySource("classpath:application.yaml")
 @EnableTransactionManagement
 @Profile("prod")
 public class DatabaseProperties {

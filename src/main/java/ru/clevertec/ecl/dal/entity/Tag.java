@@ -1,9 +1,9 @@
 package ru.clevertec.ecl.dal.entity;
 
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -11,7 +11,7 @@ import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateCreateMapper;
 import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateReadMapper;
 import ru.clevertec.ecl.service.mapper.Mapper;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 

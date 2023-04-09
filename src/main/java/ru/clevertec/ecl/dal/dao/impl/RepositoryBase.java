@@ -1,11 +1,11 @@
 package ru.clevertec.ecl.dal.dao.impl;
 
+import jakarta.persistence.EntityManager;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import ru.clevertec.ecl.dal.dao.Repository;
 import ru.clevertec.ecl.dal.entity.BaseEntity;
 
-import javax.persistence.EntityManager;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;

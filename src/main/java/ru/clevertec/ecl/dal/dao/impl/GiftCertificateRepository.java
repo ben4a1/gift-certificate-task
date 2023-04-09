@@ -1,9 +1,9 @@
 package ru.clevertec.ecl.dal.dao.impl;
 
+import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
 import ru.clevertec.ecl.dal.entity.GiftCertificate;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
 public class GiftCertificateRepository extends RepositoryBase<GiftCertificate, Long> {
