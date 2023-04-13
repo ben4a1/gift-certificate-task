@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode()
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@SuperBuilder(builderMethodName = "aGiftCertificate", toBuilder = true)
+@Builder(builderMethodName = "aGiftCertificate", toBuilder = true)
 @Entity
 @Table(name = "gift_certificate")
 @ToString(callSuper = true)

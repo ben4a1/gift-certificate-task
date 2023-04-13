@@ -57,7 +57,7 @@ public class TagService{
     }
 
     public List<TagReadDto> findAll() {
-        return tagRepository.findAll().stream().map(tagReadMapper::mapFrom).toList();
+        return tagRepository.findAll().stream().map(tagReadMapper::map).toList();
     }
 
     public TagReadDto update(Tag tag) {

@@ -2,9 +2,7 @@ package ru.clevertec.ecl.dal.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;
-import org.hibernate.envers.NotAudited;
 import org.hibernate.envers.RelationTargetAuditMode;
 
 import java.time.LocalDate;
@@ -13,8 +11,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@SuperBuilder(builderMethodName = "aUser", toBuilder = true)
-@EqualsAndHashCode(callSuper = true)
+@Builder(builderMethodName = "aUser", toBuilder = true)
+@EqualsAndHashCode(of = "username", callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

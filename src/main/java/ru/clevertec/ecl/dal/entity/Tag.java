@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@SuperBuilder(builderMethodName = "aTag", toBuilder = true)
+@Builder(builderMethodName = "aTag", toBuilder = true)
 @Entity
 @Table(name = "tag")
 public class Tag implements BaseEntity<Long>{

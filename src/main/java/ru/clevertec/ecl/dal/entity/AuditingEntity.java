@@ -16,7 +16,7 @@ import java.time.Instant;
 @Getter
 @Setter
 @MappedSuperclass
-@EntityListeners((AuditingEntityListener.class))
+@EntityListeners(AuditingEntityListener.class)
 public abstract class AuditingEntity<T extends Serializable> implements BaseEntity<T>{
 
     @CreatedDate
