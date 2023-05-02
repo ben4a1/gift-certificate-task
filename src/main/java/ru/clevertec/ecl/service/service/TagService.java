@@ -1,12 +1,9 @@
 package ru.clevertec.ecl.service.service;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import ru.clevertec.ecl.dal.dao.impl.TagRepository;
-import ru.clevertec.ecl.dal.entity.GiftCertificate;
 import ru.clevertec.ecl.dal.entity.Tag;
-import ru.clevertec.ecl.service.dto.GiftCertificateReadDto;
 import ru.clevertec.ecl.service.dto.TagCreateDto;
 import ru.clevertec.ecl.service.dto.TagReadDto;
 import ru.clevertec.ecl.service.mapper.Mapper;
@@ -21,7 +18,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
-public class TagService{
+public class TagService {
 
     private final TagRepository tagRepository;
     private final TagReadMapper tagReadMapper;

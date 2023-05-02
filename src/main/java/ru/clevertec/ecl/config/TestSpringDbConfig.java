@@ -14,13 +14,14 @@ import javax.sql.DataSource;
 @Profile("dev")
 public class TestSpringDbConfig {
 
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .addScript("database/initDB.sql")
                 .addScript("database/populateDB.sql")
                 .build();
     }
+
     @Bean
     public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {
         return new NamedParameterJdbcTemplate(dataSource());

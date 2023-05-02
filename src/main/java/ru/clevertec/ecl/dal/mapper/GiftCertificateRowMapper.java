@@ -11,6 +11,7 @@ import java.time.Duration;
 
 @Component
 public class GiftCertificateRowMapper implements RowMapper<GiftCertificate> {
+
     @Override
     public GiftCertificate mapRow(ResultSet rs, int rowNum) throws SQLException {
         return GiftCertificate.aGiftCertificate()

@@ -7,6 +7,7 @@ import ru.clevertec.ecl.service.mapper.Mapper;
 import static ru.clevertec.ecl.dal.entity.Tag.*;
 
 public class TagCreateMapper implements Mapper<TagCreateDto, Tag> {
+
     @Override
     public Tag mapFrom(TagCreateDto obj) {
         return aTag()

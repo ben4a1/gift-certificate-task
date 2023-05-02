@@ -1,6 +1,7 @@
 package ru.clevertec.ecl.exception;
 
-public class TagAlreadyExistsException extends RuntimeException{
+public class TagAlreadyExistsException extends RuntimeException {
+
     private String field;
     private Integer code;
     private String message;

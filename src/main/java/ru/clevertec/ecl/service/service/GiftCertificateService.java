@@ -10,7 +10,8 @@ import ru.clevertec.ecl.service.mapper.hibernate.GiftCertificateReadMapper;
 import ru.clevertec.ecl.service.mapper.Mapper;
 
 import javax.transaction.Transactional;
-import javax.validation.*;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
 import java.util.List;
 import java.util.Optional;
 

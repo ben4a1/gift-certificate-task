@@ -14,37 +14,38 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/certificates")
 @RequiredArgsConstructor
 public class GiftCertificateController {
 
     private final GiftCertificateService giftCertificateService;
 
-    @GetMapping(value="/certificates", produces = "application/json")
-    public ResponseEntity<List<GiftCertificateReadDto>> certificates(@RequestParam(required=false) Map<String,String> filterParams) {
+    @GetMapping
+    public ResponseEntity<List<GiftCertificateReadDto>> certificates(@RequestParam(required = false) Map<String, String> filterParams) {
         List<GiftCertificateReadDto> giftCertificates = giftCertificateService.findAll();
         return new ResponseEntity<>(giftCertificates, HttpStatus.OK);
     }
 
-    @GetMapping(value="/certificates/{id}", produces = "application/json")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<GiftCertificateReadDto> certificateById(@PathVariable Long id) {
         Optional<GiftCertificateReadDto> certificateReadDto = giftCertificateService.findById(id);
         return new ResponseEntity<>(certificateReadDto.get(), HttpStatus.OK);
     }
 
-    @PostMapping(value="/certificates", consumes = "application/json", produces = "application/json")
+    @PostMapping
     public ResponseEntity<Long> createCertificate(@RequestBody GiftCertificateCreateDto certificate) {
         Long id = giftCertificateService.create(certificate);
         return new ResponseEntity<>(id, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/certificates/{id}", consumes = {"application/json"}, produces = {"application/json"})
+    @PutMapping(value = "/{id}")
     public ResponseEntity<GiftCertificateReadDto> updateCertificate(@PathVariable Long id, @RequestBody GiftCertificate certificate) {
         certificate.setId(id);
         GiftCertificateReadDto giftCertificateReadDto = giftCertificateService.update(certificate);
         return new ResponseEntity<>(giftCertificateReadDto, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/certificates/{id}", produces = {"application/json"})
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteCertificate(@PathVariable Long id) {
         giftCertificateService.delete(id);
         return ResponseEntity.ok().build();

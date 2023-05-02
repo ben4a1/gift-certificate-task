@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static java.util.Collections.*;
+import static java.util.Collections.emptyMap;
+
 
 public interface Repository<T extends BaseEntity<K>, K extends Serializable> {
 

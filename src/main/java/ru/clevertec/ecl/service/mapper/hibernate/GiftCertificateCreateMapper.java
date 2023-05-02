@@ -9,6 +9,7 @@ import static java.time.LocalDateTime.*;
 import static ru.clevertec.ecl.dal.entity.GiftCertificate.*;
 
 public class GiftCertificateCreateMapper implements Mapper<GiftCertificateCreateDto, GiftCertificate> {
+
     @Override
     public GiftCertificate mapFrom(GiftCertificateCreateDto obj) {
         return aGiftCertificate()

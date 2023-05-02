@@ -41,7 +41,6 @@ public class HibernateRunner {
                     .getDeclaredConstructor(GiftCertificateRepository.class, GiftCertificateReadMapper.class, GiftCertificateCreateMapper.class)
                     .newInstance(certificateRepository, giftCertificateReadMapper, giftCertificateCreateMapper);
 
-
             giftCertificateService.findById(3L).ifPresent(System.out::println);
             GiftCertificateCreateDto giftCertificateCreateDto = new GiftCertificateCreateDto(
                     "qwe",
